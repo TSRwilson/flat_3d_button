@@ -92,8 +92,11 @@ class _Flat3dButtonState extends State<Flat3dButton> {
 
   @override
   Widget build(BuildContext context) {
-    final MaterialColor color = widget.color ??
-        (Theme.of(context).colorScheme.primary as MaterialColor);
+final MaterialColor color = widget.color ??
+        (Theme.of(context).colorScheme.primary is MaterialColor
+            ? Theme.of(context).colorScheme.primary as MaterialColor
+            : Colors.blue);
+
     return GestureDetector(
       onTap: widget.onPressed,
       onTapDown: (_) {
